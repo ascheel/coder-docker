@@ -13,7 +13,7 @@
   <Category>Development:Development Tools</Category>
   <WebUI>http://[IP]:[PORT:7080]/</WebUI>
   <TemplateURL/>
-  <Icon>https://coder.com/favicon.ico</Icon>
+  <Icon>https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-dark.png</Icon>
   <ExtraParams>--group-add $(stat -c %g /var/run/docker.sock)</ExtraParams>
   <PostArgs/>
   <CPUset/>
