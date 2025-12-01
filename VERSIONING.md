@@ -12,6 +12,34 @@ This guide explains how to manage versions for the Coder unRAID Community Applic
 
 **Template Version = Coder Version** (e.g., template `v2.27.7` uses Coder `v2.27.7`)
 
+### Dual-Path Versioning
+
+This project uses a **dual-path versioning strategy** for each primary version:
+
+1. **Development/Testing Path**: `v2.27.7-dev.1`, `v2.27.7-dev.2`, etc.
+   - Used for development pushes and testing
+   - Pre-release identifiers following [Semantic Versioning](https://semver.org/) spec
+   - Allows multiple iterations before stable release
+   - Example: `v2.27.7-dev.1` → `v2.27.7-dev.2` → `v2.27.7` (stable)
+
+2. **Stable Release Path**: `v2.27.7`
+   - Final, tested, production-ready release
+   - Three-component version (MAJOR.MINOR.PATCH)
+   - Only created after development versions are tested and validated
+
+**Workflow Example:**
+```
+v2.27.7-dev.1  → Development/testing iteration 1
+v2.27.7-dev.2  → Development/testing iteration 2
+v2.27.7        → Stable release (after testing)
+```
+
+This approach allows you to:
+- Push multiple development versions for testing (`-dev.X`)
+- Maintain a clear stable release (`v2.27.7`)
+- Follow semantic versioning standards
+- Keep development and stable versions clearly separated
+
 ## Current Version
 
 The template is currently pinned to: **Coder v2.27.7**
@@ -44,11 +72,23 @@ When a new Coder version is released, a new template release is created with the
 
 Template versions match Coder versions exactly:
 
+**For Development Versions:**
 ```bash
-# When Coder releases v2.9.0, create matching template version
-git tag -a v2.9.0 -m "Coder v2.9.0"
-git push origin v2.9.0
+# Create development/testing version
+git tag -a v2.27.7-dev.1 -m "Coder v2.27.7 - Development iteration 1"
+git push origin v2.27.7-dev.1
 ```
+
+**For Stable Releases:**
+```bash
+# When ready for stable release, create final version
+git tag -a v2.27.7 -m "Coder v2.27.7 - Stable release"
+git push origin v2.27.7
+```
+
+**Version Format:**
+- Development: `vMAJOR.MINOR.PATCH-dev.N` (e.g., `v2.27.7-dev.1`)
+- Stable: `vMAJOR.MINOR.PATCH` (e.g., `v2.27.7`)
 
 **Benefits**:
 - Clear mapping: template v2.9.0 = Coder v2.9.0

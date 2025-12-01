@@ -8,9 +8,47 @@ This repository uses **version-pinned releases** that match Coder's versioning. 
 - Each Git tag/release uses the exact Coder version it's pinned to
 - Users can install specific versions or upgrade/downgrade as needed
 
+### Dual-Path Versioning
+
+This project uses **two versioning paths** for each primary version:
+
+1. **Development Path**: `v2.27.7-dev.1`, `v2.27.7-dev.2`, etc.
+   - For development pushes and testing
+   - Uses semver pre-release identifiers (`-dev.N`)
+   - Docker image tag uses base version (e.g., `v2.27.7`)
+
+2. **Stable Path**: `v2.27.7`
+   - Final, tested, production-ready release
+   - Created after development versions are validated
+
+**Example Workflow:**
+```
+v2.27.7-dev.1  → Test iteration 1
+v2.27.7-dev.2  → Test iteration 2  
+v2.27.7        → Stable release
+```
+
 ## Workflow: Updating for a New Coder Release
 
-When Coder releases a new version (e.g., `v2.9.0`):
+### For Development Versions
+
+When creating a development/testing iteration:
+
+```bash
+# Use the update script with a dev version
+./update-version.sh v2.27.7-dev.1
+
+# Or manually:
+# 1. Update coder.xml to use base version (v2.27.7)
+# 2. Test
+# 3. Commit and tag with dev version (v2.27.7-dev.1)
+git tag -a v2.27.7-dev.1 -m "Coder v2.27.7 - Development iteration 1"
+git push origin v2.27.7-dev.1
+```
+
+### For Stable Releases
+
+When Coder releases a new version (e.g., `v2.9.0`) or you're ready to release stable:
 
 ### 1. Check Coder Releases
 
@@ -60,15 +98,32 @@ docker run --rm -it \
 
 ### 6. Create Git Tag and Release
 
+**For Development Versions:**
 ```bash
 # Stage changes
 git add coder.xml README.md VERSIONING.md
 
 # Commit with version number
-git commit -m "Update to Coder v2.9.0"
+git commit -m "Update to Coder v2.27.7-dev.1"
 
-# Create tag matching Coder version
-git tag -a v2.9.0 -m "Coder v2.9.0 - [Brief description of changes]"
+# Create tag matching template version (includes -dev.N)
+git tag -a v2.27.7-dev.1 -m "Coder v2.27.7 - Development iteration 1"
+
+# Push commits and tags
+git push origin main
+git push origin v2.27.7-dev.1
+```
+
+**For Stable Releases:**
+```bash
+# Stage changes
+git add coder.xml README.md VERSIONING.md
+
+# Commit with version number
+git commit -m "Update to Coder v2.9.0 (stable release)"
+
+# Create tag matching Coder version (no -dev suffix)
+git tag -a v2.9.0 -m "Coder v2.9.0 - Stable release"
 
 # Push commits and tags
 git push origin main
@@ -77,11 +132,35 @@ git push origin v2.9.0
 
 ### 7. Create GitHub Release
 
+**For Development Versions:**
+1. Go to GitHub → Releases → Draft a new release
+2. **Tag**: `v2.27.7-dev.1` (select existing tag)
+3. **Title**: `Coder v2.27.7-dev.1 (Development)`
+4. **Description**:
+   ```markdown
+   ## Development Release
+   This is a development/testing iteration. Use `v2.27.7` for stable releases.
+   
+   ## Changes
+   - Updated to Coder v2.27.7
+   - [List any template-specific changes]
+   
+   ## Testing
+   Please test and report any issues before stable release.
+   ```
+5. **Attach**: `coder.xml` file
+6. Mark as **Pre-release** (important!)
+7. Publish release
+
+**For Stable Releases:**
 1. Go to GitHub → Releases → Draft a new release
 2. **Tag**: `v2.9.0` (select existing tag)
 3. **Title**: `Coder v2.9.0`
 4. **Description**:
    ```markdown
+   ## Stable Release
+   This is a stable, production-ready release.
+   
    ## Changes
    - Updated to Coder v2.9.0
    - [List any template-specific changes]
@@ -95,7 +174,8 @@ git push origin v2.9.0
    3. Start the container
    ```
 5. **Attach**: `coder.xml` file
-6. Publish release
+6. **Do NOT** mark as pre-release
+7. Publish release
 
 ### 8. Update Support Thread
 
