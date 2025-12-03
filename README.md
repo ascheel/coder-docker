@@ -11,6 +11,7 @@ Coder enables you to create and manage remote development environments in the cl
 - Quick deployment with built-in database (proof-of-concept)
 - Support for external PostgreSQL database (production-ready)
 - Docker workspace support via Docker socket access
+- **Automatic template import** - Docker workspace template is imported automatically on first start
 - Persistent data storage
 - Easy configuration through unRAID's web interface
 
@@ -43,6 +44,21 @@ Coder enables you to create and manage remote development environments in the cl
 3. Select "Coder" from the template dropdown
 4. Configure the settings as described above
 5. Click "Apply" to start the container
+
+## Automatic Template Import
+
+This template uses a **custom Docker image** (`ghcr.io/ascheel/coder-unraid`) that automatically imports the Docker workspace template on first container start. No manual setup required!
+
+The template `docker-workspace-unraid` will be available immediately after:
+1. Installing Coder from Community Applications
+2. Starting the container
+3. Waiting for Coder to initialize (1-2 minutes)
+
+You can verify the template was imported by:
+- Checking the Templates section in the Coder web UI
+- Running: `docker exec Coder coder templates list`
+
+See [DOCKER-IMAGE.md](DOCKER-IMAGE.md) for details about the custom image and how to build it.
 
 ## Configuration
 
@@ -77,8 +93,8 @@ Coder requires access to the Docker socket to create and manage workspace contai
 1. After installation, access Coder at `http://[YOUR-IP]:7080/`
 2. Follow the on-screen instructions to:
    - Create your first admin user
-   - Set up your first template
-   - Create your first workspace
+3. The `docker-workspace-unraid` template is automatically imported and ready to use
+4. Create your first workspace using the pre-configured template
 
 ## Troubleshooting
 

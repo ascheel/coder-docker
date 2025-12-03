@@ -1,0 +1,39 @@
+# .dockerignore - Files to exclude from Docker build context
+
+# Documentation
+*.md
+!README.md
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# unRAID specific
+coder.xml
+SUBMISSION.md
+VERSIONING*.md
+CHANGELOG.md
+ICON_HOSTING.md
+USER_PERMISSIONS.md
+
+# Scripts not needed in image
+install-coder.sh
+unraid-user-script.sh
+update-version.sh
+
+# Build artifacts
+*.log
+.DS_Store
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Other
+docker-compose.yml
+*.yml
+!docker-workspace.tf
+

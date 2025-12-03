@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>Coder</Name>
-  <Repository>ghcr.io/coder/coder:v2.27.7</Repository>
+  <Repository>ghcr.io/ascheel/coder-unraid:v2.27.7</Repository>
   <Registry>https://ghcr.io</Registry>
   <Network>bridge</Network>
   <MyIP/>
@@ -9,13 +9,13 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/ascheel/coder-docker</Support>
   <Project>https://coder.com</Project>
-  <Overview>Coder enables secure, remote development environments. This template provides a quick-start deployment with built-in database. For production use, configure an external PostgreSQL database via environment variables.</Overview>
+  <Overview>Coder enables secure, remote development environments. This template provides a quick-start deployment with built-in database and automatic Docker workspace template import. For production use, configure an external PostgreSQL database via environment variables.</Overview>
   <Category>Development:Development Tools</Category>
   <WebUI>http://[IP]:[PORT:7080]/</WebUI>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-dark.png</Icon>
   <ExtraParams>--group-add $(stat -c %g /var/run/docker.sock)</ExtraParams>
-  <PostArgs/>
+  <PostArgs>--address 0.0.0.0:7080</PostArgs>
   <CPUset/>
   <DateInstalled/>
   <DonateText/>
@@ -42,6 +42,16 @@
     Required="false"
     Mask="true"/>
   <Config
+    Name="HTTP Address"
+    Target="CODER_HTTP_ADDRESS"
+    Default="0.0.0.0:7080"
+    Mode=""
+    Description="Address and port for Coder to listen on. Use 0.0.0.0 to listen on all interfaces."
+    Type="Variable"
+    Display="always"
+    Required="false"
+    Mask="false">0.0.0.0:7080</Config>
+  <Config
     Name="Port 7080"
     Target="7080"
     Default="7080"
@@ -51,6 +61,16 @@
     Display="always"
     Required="true"
     Mask="false">7080</Config>
+  <!-- <Config
+    Name="Port 3000"
+    Target="3000"
+    Default="3000"
+    Mode="tcp"
+    Description="Coder Web Interface port"
+    Type="Port"
+    Display="always"
+    Required="false"
+    Mask="false">3000</Config> -->
   <Config
     Name="Coder Data Directory"
     Target="/home/coder/.config"
@@ -72,4 +92,3 @@
     Required="true"
     Mask="false">/var/run/docker.sock</Config>
 </Container>
-
