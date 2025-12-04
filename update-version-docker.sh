@@ -2,9 +2,9 @@
 # update-version-docker.sh - Update template and Docker image to match a specific Coder version
 #
 # Usage: 
-#   Development: ./update-version-docker.sh v2.27.7-dev.1
-#   Stable:      ./update-version-docker.sh v2.27.7
-#   With message: ./update-version-docker.sh v2.27.7-dev.1 "Fixed workspace creation bug"
+#   Development: ./update-version-docker.sh v2.28.5-dev.1
+#   Stable:      ./update-version-docker.sh v2.28.5
+#   With message: ./update-version-docker.sh v2.28.5-dev.1 "Fixed workspace creation bug"
 #
 # This script:
 #   1. Updates coder.xml with new version
@@ -22,11 +22,11 @@ if [ -z "$NEW_VERSION" ]; then
   echo "Usage: $0 <version> [commit-message] [--no-build] [--push]"
   echo ""
   echo "Examples:"
-  echo "  Development: $0 v2.27.7-dev.1"
-  echo "  Stable:      $0 v2.27.7"
-  echo "  With message: $0 v2.27.7-dev.1 'Fixed workspace creation bug'"
-  echo "  No build:    $0 v2.27.7 '' --no-build"
-  echo "  Build & push: $0 v2.27.7 '' --push"
+  echo "  Development: $0 v2.28.5-dev.1"
+  echo "  Stable:      $0 v2.28.5"
+  echo "  With message: $0 v2.28.5-dev.1 'Fixed workspace creation bug'"
+  echo "  No build:    $0 v2.28.5 '' --no-build"
+  echo "  Build & push: $0 v2.28.5 '' --push"
   echo ""
   echo "Environment variables:"
   echo "  BUILD_IMAGE=false  - Skip Docker image build"
@@ -51,8 +51,8 @@ done
 # Validate version format
 if [[ ! $NEW_VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-dev\.[0-9]+)?$ ]]; then
   echo "Error: Version must be in format:"
-  echo "  - Stable: vX.Y.Z (e.g., v2.27.7)"
-  echo "  - Development: vX.Y.Z-dev.N (e.g., v2.27.7-dev.1)"
+  echo "  - Stable: vX.Y.Z (e.g., v2.28.5)"
+  echo "  - Development: vX.Y.Z-dev.N (e.g., v2.28.5-dev.1)"
   exit 1
 fi
 

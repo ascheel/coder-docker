@@ -2,9 +2,9 @@
 # update-version.sh - Update template to match a specific Coder version
 #
 # Usage: 
-#   Development: ./update-version.sh v2.27.7-dev.1
-#   Stable:      ./update-version.sh v2.27.7
-#   With message: ./update-version.sh v2.27.7-dev.1 "Fixed workspace creation bug"
+#   Development: ./update-version.sh v2.28.5-dev.1
+#   Stable:      ./update-version.sh v2.28.5
+#   With message: ./update-version.sh v2.28.5-dev.1 "Fixed workspace creation bug"
 
 set -e
 
@@ -15,13 +15,13 @@ if [ -z "$NEW_VERSION" ]; then
   echo "Usage: $0 <version> [commit-message]"
   echo ""
   echo "Examples:"
-  echo "  Development: $0 v2.27.7-dev.1"
-  echo "  Stable:      $0 v2.27.7"
-  echo "  With message: $0 v2.27.7-dev.1 'Fixed workspace creation bug'"
+  echo "  Development: $0 v2.28.5-dev.1"
+  echo "  Stable:      $0 v2.28.5"
+  echo "  With message: $0 v2.28.5-dev.1 'Fixed workspace creation bug'"
   echo ""
   echo "Version formats:"
-  echo "  Development: vX.Y.Z-dev.N (e.g., v2.27.7-dev.1)"
-  echo "  Stable:      vX.Y.Z (e.g., v2.27.7)"
+  echo "  Development: vX.Y.Z-dev.N (e.g., v2.28.5-dev.1)"
+  echo "  Stable:      vX.Y.Z (e.g., v2.28.5)"
   exit 1
 fi
 
@@ -29,15 +29,15 @@ fi
 # Supports: vX.Y.Z (stable) or vX.Y.Z-dev.N (development)
 if [[ ! $NEW_VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-dev\.[0-9]+)?$ ]]; then
   echo "Error: Version must be in format:"
-  echo "  - Stable: vX.Y.Z (e.g., v2.27.7)"
-  echo "  - Development: vX.Y.Z-dev.N (e.g., v2.27.7-dev.1)"
+  echo "  - Stable: vX.Y.Z (e.g., v2.28.5)"
+  echo "  - Development: vX.Y.Z-dev.N (e.g., v2.28.5-dev.1)"
   exit 1
 fi
 
 # Determine if this is a development or stable version
 if [[ $NEW_VERSION =~ -dev\.[0-9]+$ ]]; then
   VERSION_TYPE="development"
-  # Extract base version (e.g., v2.27.7 from v2.27.7-dev.1)
+  # Extract base version (e.g., v2.28.5 from v2.28.5-dev.1)
   BASE_VERSION=$(echo $NEW_VERSION | sed 's/-dev\.[0-9]*$//')
   # Extract dev number
   DEV_NUMBER=$(echo $NEW_VERSION | sed 's/.*-dev\.//')
@@ -47,7 +47,7 @@ else
 fi
 
 # Extract version number without 'v' prefix for Docker image tag
-# For development versions, use the base version (e.g., v2.27.7-dev.1 → v2.27.7)
+# For development versions, use the base version (e.g., v2.28.5-dev.1 → v2.28.5)
 DOCKER_TAG=$BASE_VERSION
 VERSION_NUM=${BASE_VERSION#v}
 
@@ -62,7 +62,7 @@ fi
 echo ""
 
 # Update coder.xml
-# Note: Docker image tag uses BASE_VERSION (e.g., v2.27.7), not the full dev version
+# Note: Docker image tag uses BASE_VERSION (e.g., v2.28.5), not the full dev version
 # Pattern: v[0-9][0-9.]* ensures version starts with at least one digit
 # Period in character class [] doesn't need escaping - it's literal
 if [[ "$OSTYPE" == "darwin"* ]]; then

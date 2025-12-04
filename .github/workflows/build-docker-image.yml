@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       coder_version:
-        description: 'Coder version to build (e.g., v2.27.7). Leave empty for latest.'
+        description: 'Coder version to build (e.g., v2.28.5). Leave empty for latest.'
         required: false
         type: string
         default: 'latest'

@@ -5,8 +5,8 @@
 #   ./build.sh [version] [tag]
 #
 # Examples:
-#   ./build.sh v2.27.7                    # Build with specific Coder version
-#   ./build.sh v2.27.7 latest             # Build and tag as latest
+#   ./build.sh v2.28.5                    # Build with specific Coder version
+#   ./build.sh v2.28.5 latest             # Build and tag as latest
 #   ./build.sh                            # Build with latest Coder version
 
 set -e

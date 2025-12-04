@@ -21,6 +21,6 @@ Template versions match Coder versions exactly.
 
 ---
 
-[Unreleased]: https://github.com/ascheel/coder-docker/compare/v2.27.7...HEAD
-[v2.27.7]: https://github.com/ascheel/coder-docker/releases/tag/v2.27.7
+[Unreleased]: https://github.com/ascheel/coder-unraid/compare/v2.27.7...HEAD
+[v2.27.7]: https://github.com/ascheel/coder-unraid/releases/tag/v2.27.7
 

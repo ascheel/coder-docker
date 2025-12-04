@@ -129,7 +129,7 @@ This template uses **version-pinned releases** - each template version matches a
 
 When a new Coder version is released, a matching template release will be available:
 
-1. Check for new template releases in Community Applications or [GitHub Releases](https://github.com/ascheel/coder-docker/releases)
+1. Check for new template releases in Community Applications or [GitHub Releases](https://github.com/ascheel/coder-unraid/releases)
 2. Review Coder's release notes for breaking changes
 3. Stop your Coder container
 4. Update the template (or reinstall from Community Applications)
@@ -139,13 +139,13 @@ When a new Coder version is released, a matching template release will be availa
 
 If you encounter issues with a newer version:
 
-1. Install a previous template version (e.g., `v2.27.7` instead of `v2.28.0`)
+1. Install a previous template version (e.g., `v2.28.5` instead of `v2.28.0`)
 2. Your data persists - only the Coder version changes
 3. Report issues in the support thread
 
 ### Current Version
 
-This template is currently pinned to: **Coder v2.27.7**
+This template is currently pinned to: **Coder v2.28.5**
 
 Check the template's Git tags or GitHub releases to see available versions.
 

@@ -39,7 +39,7 @@ The template XML file needs to be accessible via a direct URL. You can:
 
 1. **Use GitHub Raw URL** (Recommended):
    - Upload `coder.xml` to your repository
-   - Use URL: `https://raw.githubusercontent.com/ascheel/coder-docker/main/coder.xml`
+   - Use URL: `https://raw.githubusercontent.com/ascheel/coder-unraid/main/coder.xml`
    - Update the `<TemplateURL>` in the XML if needed
 
 2. **Use GitHub Releases**:
@@ -51,7 +51,7 @@ The template XML file needs to be accessible via a direct URL. You can:
 If you're hosting the template on GitHub, update the `<TemplateURL>` tag in `coder.xml`:
 
 ```xml
-<TemplateURL>https://raw.githubusercontent.com/ascheel/coder-docker/main/coder.xml</TemplateURL>
+<TemplateURL>https://raw.githubusercontent.com/ascheel/coder-unraid/main/coder.xml</TemplateURL>
 ```
 
 ## Step 5: Submit to Community Applications
@@ -61,7 +61,7 @@ If you're hosting the template on GitHub, update the `<TemplateURL>` tag in `cod
    - **Application Name**: Coder
    - **Support Thread URL**: [Your forum thread URL]
    - **Template URL**: [Direct URL to your coder.xml file]
-   - **Repository URL**: https://github.com/ascheel/coder-docker
+   - **Repository URL**: https://github.com/ascheel/coder-unraid
    - **Description**: Brief description of Coder
    - **Category**: Development Tools
    - **Icon URL**: https://coder.com/favicon.ico

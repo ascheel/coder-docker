@@ -24,10 +24,10 @@ The custom image (`ghcr.io/ascheel/coder-unraid`) includes:
 ./build.sh
 
 # Build with specific Coder version
-./build.sh v2.27.7
+./build.sh v2.28.5
 
 # Build and tag as specific version
-./build.sh v2.27.7 v2.27.7
+./build.sh v2.28.5 v2.28.5
 ```
 
 ### Manual Build
@@ -38,8 +38,8 @@ docker build -t ghcr.io/ascheel/coder-unraid:latest .
 
 # Build with specific Coder version
 docker build \
-  --build-arg CODER_VERSION=v2.27.7 \
-  -t ghcr.io/ascheel/coder-unraid:v2.27.7 \
+  --build-arg CODER_VERSION=v2.28.5 \
+  -t ghcr.io/ascheel/coder-unraid:v2.28.5 \
   .
 ```
 
@@ -69,7 +69,7 @@ docker build \
 ### Matching Coder Versions
 
 The image is tagged to match Coder versions:
-- `ghcr.io/ascheel/coder-unraid:v2.27.7` → Based on Coder v2.27.7
+- `ghcr.io/ascheel/coder-unraid:v2.28.5` → Based on Coder v2.28.5
 - `ghcr.io/ascheel/coder-unraid:latest` → Based on latest Coder
 
 ### Updating for New Coder Version
@@ -122,7 +122,7 @@ The repository includes a GitHub Actions workflow (`.github/workflows/build-dock
 3. Click **"Run workflow"** button
 4. Optionally specify a Coder version:
    - Leave empty or enter `latest` to build from the latest Coder image
-   - Enter a specific version like `v2.27.7` to build from that version
+   - Enter a specific version like `v2.28.5` to build from that version
 5. Click **"Run workflow"** to start the build
 
 The workflow will:
@@ -161,8 +161,8 @@ docker exec coder-test coder templates list
 
 2. **Build and push**:
    ```bash
-   ./build.sh v2.27.7 v2.27.7
-   docker push ghcr.io/ascheel/coder-unraid:v2.27.7
+   ./build.sh v2.28.5 v2.28.5
+   docker push ghcr.io/ascheel/coder-unraid:v2.28.5
    docker push ghcr.io/ascheel/coder-unraid:latest
    ```
 
@@ -173,7 +173,7 @@ The GitHub Actions workflow handles building and pushing. Simply trigger it manu
 ## Image Tags
 
 - `latest` - Always points to the most recent build
-- `v2.27.7` - Specific Coder version
+- `v2.28.5` - Specific Coder version
 - `v2.27` - Major.minor version
 - `main` - Build from main branch (development)
 

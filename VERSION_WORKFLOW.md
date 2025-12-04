@@ -4,7 +4,7 @@ This repository uses **version-pinned releases** that match Coder's versioning. 
 
 ## Versioning Strategy
 
-- **Template version** = **Coder version** (e.g., `v2.27.7`)
+- **Template version** = **Coder version** (e.g., `v2.28.5`)
 - Each Git tag/release uses the exact Coder version it's pinned to
 - Users can install specific versions or upgrade/downgrade as needed
 
@@ -12,20 +12,20 @@ This repository uses **version-pinned releases** that match Coder's versioning. 
 
 This project uses **two versioning paths** for each primary version:
 
-1. **Development Path**: `v2.27.7-dev.1`, `v2.27.7-dev.2`, etc.
+1. **Development Path**: `v2.28.5-dev.1`, `v2.28.5-dev.2`, etc.
    - For development pushes and testing
    - Uses semver pre-release identifiers (`-dev.N`)
-   - Docker image tag uses base version (e.g., `v2.27.7`)
+   - Docker image tag uses base version (e.g., `v2.28.5`)
 
-2. **Stable Path**: `v2.27.7`
+2. **Stable Path**: `v2.28.5`
    - Final, tested, production-ready release
    - Created after development versions are validated
 
 **Example Workflow:**
 ```
-v2.27.7-dev.1  → Test iteration 1
-v2.27.7-dev.2  → Test iteration 2  
-v2.27.7        → Stable release
+v2.28.5-dev.1  → Test iteration 1
+v2.28.5-dev.2  → Test iteration 2  
+v2.28.5        → Stable release
 ```
 
 ## Workflow: Updating for a New Coder Release
@@ -36,14 +36,14 @@ When creating a development/testing iteration:
 
 ```bash
 # Use the update script with a dev version
-./update-version.sh v2.27.7-dev.1
+./update-version.sh v2.28.5-dev.1
 
 # Or manually:
-# 1. Update coder.xml to use base version (v2.27.7)
+# 1. Update coder.xml to use base version (v2.28.5)
 # 2. Test
-# 3. Commit and tag with dev version (v2.27.7-dev.1)
-git tag -a v2.27.7-dev.1 -m "Coder v2.27.7 - Development iteration 1"
-git push origin v2.27.7-dev.1
+# 3. Commit and tag with dev version (v2.28.5-dev.1)
+git tag -a v2.28.5-dev.1 -m "Coder v2.28.5 - Development iteration 1"
+git push origin v2.28.5-dev.1
 ```
 
 ### For Stable Releases
@@ -104,14 +104,14 @@ docker run --rm -it \
 git add coder.xml README.md VERSIONING.md
 
 # Commit with version number
-git commit -m "Update to Coder v2.27.7-dev.1"
+git commit -m "Update to Coder v2.28.5-dev.1"
 
 # Create tag matching template version (includes -dev.N)
-git tag -a v2.27.7-dev.1 -m "Coder v2.27.7 - Development iteration 1"
+git tag -a v2.28.5-dev.1 -m "Coder v2.28.5 - Development iteration 1"
 
 # Push commits and tags
 git push origin main
-git push origin v2.27.7-dev.1
+git push origin v2.28.5-dev.1
 ```
 
 **For Stable Releases:**
@@ -134,15 +134,15 @@ git push origin v2.9.0
 
 **For Development Versions:**
 1. Go to GitHub → Releases → Draft a new release
-2. **Tag**: `v2.27.7-dev.1` (select existing tag)
-3. **Title**: `Coder v2.27.7-dev.1 (Development)`
+2. **Tag**: `v2.28.5-dev.1` (select existing tag)
+3. **Title**: `Coder v2.28.5-dev.1 (Development)`
 4. **Description**:
    ```markdown
    ## Development Release
-   This is a development/testing iteration. Use `v2.27.7` for stable releases.
+   This is a development/testing iteration. Use `v2.28.5` for stable releases.
    
    ## Changes
-   - Updated to Coder v2.27.7
+   - Updated to Coder v2.28.5
    - [List any template-specific changes]
    
    ## Testing
@@ -216,7 +216,7 @@ Maintain a `CHANGELOG.md` or track versions in README:
 ## Version History
 
 - **v2.9.0** (2025-01-XX) - Updated to Coder v2.9.0
-- **v2.27.7** (2025-01-XX) - Initial release, Coder v2.27.7
+- **v2.28.5** (2025-01-XX) - Initial release, Coder v2.28.5
 ```
 
 ## Automation Ideas

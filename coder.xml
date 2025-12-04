@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>Coder</Name>
-  <Repository>ghcr.io/ascheel/coder-unraid:v2.27.7</Repository>
+  <Repository>ghcr.io/ascheel/coder-unraid:v2.28.5</Repository>
   <Registry>https://ghcr.io</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/ascheel/coder-docker</Support>
+  <Support>https://github.com/ascheel/coder-unraid</Support>
   <Project>https://coder.com</Project>
   <Overview>Coder enables secure, remote development environments. This template provides a quick-start deployment with built-in database and automatic Docker workspace template import. For production use, configure an external PostgreSQL database via environment variables.</Overview>
   <Category>Development:Development Tools</Category>
   <WebUI>http://[IP]:[PORT:7080]/</WebUI>
   <TemplateURL/>
-  <Icon>https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-dark.png</Icon>
+  <Icon>https://raw.githubusercontent.com/ascheel/coder-unraid/main/assets/coder-dark.png</Icon>
   <ExtraParams>--group-add $(stat -c %g /var/run/docker.sock)</ExtraParams>
   <PostArgs>--address 0.0.0.0:7080</PostArgs>
   <CPUset/>

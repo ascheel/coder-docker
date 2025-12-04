@@ -3,7 +3,7 @@
 #
 # Build arguments:
 #   CODER_VERSION - Version of Coder to use (default: latest)
-#   Example: docker build --build-arg CODER_VERSION=v2.27.7 -t coder-unraid:v2.27.7 .
+#   Example: docker build --build-arg CODER_VERSION=v2.28.5 -t coder-unraid:v2.28.5 .
 
 ARG CODER_VERSION=latest
 FROM ghcr.io/coder/coder:${CODER_VERSION}
@@ -27,4 +27,3 @@ ENTRYPOINT ["/usr/local/bin/entrypoint-wrapper.sh"]
 
 # Default command (can be overridden)
 CMD ["--address", "0.0.0.0:7080"]
-

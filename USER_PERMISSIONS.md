@@ -22,13 +22,13 @@ uid=1000(coder) gid=1000(coder) groups=1000(coder),999(docker)
 Check the Dockerfile or image metadata:
 
 ```bash
-docker inspect ghcr.io/coder/coder:v2.27.7 | grep -i user
+docker inspect ghcr.io/coder/coder:v2.28.5 | grep -i user
 ```
 
 Or check the image's default user:
 
 ```bash
-docker run --rm --entrypoint id ghcr.io/coder/coder:v2.27.7
+docker run --rm --entrypoint id ghcr.io/coder/coder:v2.28.5
 ```
 
 ### Method 3: Check Coder Documentation
@@ -61,7 +61,7 @@ In unRAID, the default path is `/mnt/user/appdata/coder`. You need to set the co
 Run a test container to check:
 
 ```bash
-docker run --rm --entrypoint id ghcr.io/coder/coder:v2.27.7
+docker run --rm --entrypoint id ghcr.io/coder/coder:v2.28.5
 ```
 
 Example output:
@@ -115,7 +115,7 @@ Add `user` to your service:
 ```yaml
 services:
   coder:
-    image: ghcr.io/coder/coder:v2.27.7
+    image: ghcr.io/coder/coder:v2.28.5
     user: "1000:1000"  # UID:GID
     # ... rest of config
 ```

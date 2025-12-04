@@ -44,15 +44,15 @@ https://raw.githubusercontent.com/USERNAME/REPO/BRANCH/PATH/TO/FILE
 
 ### For Your Repository
 
-Based on your repository structure (`ascheel/coder-docker`), the URL would be:
+Based on your repository structure (`ascheel/coder-unraid`), the URL would be:
 
 ```
-https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-icon.png
+https://raw.githubusercontent.com/ascheel/coder-unraid/main/assets/coder-icon.png
 ```
 
 **Replace:**
 - `ascheel` → Your GitHub username
-- `coder-docker` → Your repository name
+- `coder-unraid` → Your repository name
 - `main` → Your default branch (could be `master`)
 - `assets/coder-icon.png` → Path to your icon file
 
@@ -61,7 +61,7 @@ https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-icon.pn
 Update the `<Icon>` tag in your `coder.xml` file:
 
 ```xml
-<Icon>https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-icon.png</Icon>
+<Icon>https://raw.githubusercontent.com/ascheel/coder-unraid/main/assets/coder-icon.png</Icon>
 ```
 
 ## Step 5: Verify the URL
@@ -76,7 +76,7 @@ Test that the URL works by:
 ### ✅ Recommended Structure
 
 ```
-coder-docker/
+coder-unraid/
 ├── assets/
 │   ├── coder-icon.png      # Main icon (64x64 or 128x128)
 │   └── coder-icon-large.png # Optional: larger version
@@ -96,7 +96,7 @@ coder-docker/
 For version-specific icons (if needed):
 
 ```
-https://raw.githubusercontent.com/ascheel/coder-docker/v2.27.7/assets/coder-icon.png
+https://raw.githubusercontent.com/ascheel/coder-unraid/v2.28.5/assets/coder-icon.png
 ```
 
 However, for icons, using `main` branch is usually fine since icons rarely change.
@@ -114,7 +114,7 @@ However, for icons, using `main` branch is usually fine since icons rarely chang
 
 ```bash
 # Test if URL is accessible
-curl -I https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-icon.png
+curl -I https://raw.githubusercontent.com/ascheel/coder-unraid/main/assets/coder-icon.png
 
 # Should return HTTP 200 OK
 ```
@@ -132,7 +132,7 @@ cp /path/to/coder-icon.png assets/
 # Edit coder.xml and change:
 # <Icon>https://coder.com/favicon.ico</Icon>
 # To:
-# <Icon>https://raw.githubusercontent.com/ascheel/coder-docker/main/assets/coder-icon.png</Icon>
+# <Icon>https://raw.githubusercontent.com/ascheel/coder-unraid/main/assets/coder-icon.png</Icon>
 
 # 4. Commit and push
 git add assets/coder-icon.png coder.xml

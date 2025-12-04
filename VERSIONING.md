@@ -10,39 +10,39 @@ This guide explains how to manage versions for the Coder unRAID Community Applic
 - Know exactly which Coder version they're running
 - Upgrade/downgrade with confidence
 
-**Template Version = Coder Version** (e.g., template `v2.27.7` uses Coder `v2.27.7`)
+**Template Version = Coder Version** (e.g., template `v2.28.5` uses Coder `v2.28.5`)
 
 ### Dual-Path Versioning
 
 This project uses a **dual-path versioning strategy** for each primary version:
 
-1. **Development/Testing Path**: `v2.27.7-dev.1`, `v2.27.7-dev.2`, etc.
+1. **Development/Testing Path**: `v2.28.5-dev.1`, `v2.28.5-dev.2`, etc.
    - Used for development pushes and testing
    - Pre-release identifiers following [Semantic Versioning](https://semver.org/) spec
    - Allows multiple iterations before stable release
-   - Example: `v2.27.7-dev.1` → `v2.27.7-dev.2` → `v2.27.7` (stable)
+   - Example: `v2.28.5-dev.1` → `v2.28.5-dev.2` → `v2.28.5` (stable)
 
-2. **Stable Release Path**: `v2.27.7`
+2. **Stable Release Path**: `v2.28.5`
    - Final, tested, production-ready release
    - Three-component version (MAJOR.MINOR.PATCH)
    - Only created after development versions are tested and validated
 
 **Workflow Example:**
 ```
-v2.27.7-dev.1  → Development/testing iteration 1
-v2.27.7-dev.2  → Development/testing iteration 2
-v2.27.7        → Stable release (after testing)
+v2.28.5-dev.1  → Development/testing iteration 1
+v2.28.5-dev.2  → Development/testing iteration 2
+v2.28.5        → Stable release (after testing)
 ```
 
 This approach allows you to:
 - Push multiple development versions for testing (`-dev.X`)
-- Maintain a clear stable release (`v2.27.7`)
+- Maintain a clear stable release (`v2.28.5`)
 - Follow semantic versioning standards
 - Keep development and stable versions clearly separated
 
 ## Current Version
 
-The template is currently pinned to: **Coder v2.27.7**
+The template is currently pinned to: **Coder v2.28.5**
 
 Check the `Repository` tag in `coder.xml` to see the current version.
 
@@ -50,7 +50,7 @@ Check the `Repository` tag in `coder.xml` to see the current version.
 
 Coder publishes images with these tag patterns:
 - `:latest` - Latest stable release (current default)
-- `:v2.x.x` - Specific version (e.g., `v2.27.7`)
+- `:v2.x.x` - Specific version (e.g., `v2.28.5`)
 - `:v2.x` - Minor version (e.g., `v2.8`) - points to latest patch
 - `:main` - Development/preview builds (not recommended for production)
 
@@ -63,7 +63,7 @@ Coder publishes images with these tag patterns:
 
 Each template release is pinned to a specific Coder version:
 ```xml
-<Repository>ghcr.io/coder/coder:v2.27.7</Repository>
+<Repository>ghcr.io/coder/coder:v2.28.5</Repository>
 ```
 
 When a new Coder version is released, a new template release is created with the matching version tag. See [VERSION_WORKFLOW.md](VERSION_WORKFLOW.md) for the update process.
@@ -75,24 +75,24 @@ Template versions match Coder versions exactly:
 **For Development Versions:**
 ```bash
 # Create development/testing version
-git tag -a v2.27.7-dev.1 -m "Coder v2.27.7 - Development iteration 1"
-git push origin v2.27.7-dev.1
+git tag -a v2.28.5-dev.1 -m "Coder v2.28.5 - Development iteration 1"
+git push origin v2.28.5-dev.1
 ```
 
 **For Stable Releases:**
 ```bash
 # When ready for stable release, create final version
-git tag -a v2.27.7 -m "Coder v2.27.7 - Stable release"
-git push origin v2.27.7
+git tag -a v2.28.5 -m "Coder v2.28.5 - Stable release"
+git push origin v2.28.5
 ```
 
 **Version Format:**
-- Development: `vMAJOR.MINOR.PATCH-dev.N` (e.g., `v2.27.7-dev.1`)
-- Stable: `vMAJOR.MINOR.PATCH` (e.g., `v2.27.7`)
+- Development: `vMAJOR.MINOR.PATCH-dev.N` (e.g., `v2.28.5-dev.1`)
+- Stable: `vMAJOR.MINOR.PATCH` (e.g., `v2.28.5`)
 
 **Benefits**:
 - Clear mapping: template v2.9.0 = Coder v2.9.0
-- Easy rollback: install template v2.27.7 to rollback Coder
+- Easy rollback: install template v2.28.5 to rollback Coder
 - Version clarity: users know exactly what they're running
 - No confusion: one version number to track
 
@@ -129,7 +129,7 @@ Create GitHub releases for major template updates:
 ### For End Users
 
 **Installation**:
-- Install specific template version (e.g., `v2.27.7`) to get that Coder version
+- Install specific template version (e.g., `v2.28.5`) to get that Coder version
 - Check release notes before upgrading
 - Test upgrades in non-production first
 
@@ -197,7 +197,7 @@ You can add a Config option to let users choose the version:
   Target="CODER_VERSION"
   Default="latest"
   Mode=""
-  Description="Docker image tag/version. Use 'latest' for auto-updates, or specific version like 'v2.27.7' for stability."
+  Description="Docker image tag/version. Use 'latest' for auto-updates, or specific version like 'v2.28.5' for stability."
   Type="Variable"
   Display="always"
   Required="false"
